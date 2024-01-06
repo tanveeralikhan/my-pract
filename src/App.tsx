@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import logo from "./logo.svg";
 import "./App.css";
@@ -15,6 +15,9 @@ import {
   isValidParentheses,
   longestSubstring,
 } from "./Components/Misc/StringAlg";
+import useDebounce from "./hook/debounce";
+import { log } from "console";
+import { ResultWrapper, SearchWrapper, TextWrapper } from "./styled.component";
 
 interface DataProps {
   userId: number;
@@ -26,15 +29,19 @@ interface DataProps {
 function App() {
   const [text, setText] = useState<string>("");
   const [inputText, setInputText] = useState<string>("");
-  const [data, setData] = useState<any>([]);
+  const [data, setData] = useState<any[]>([]);
+  const [search, setSearch] = useState<string | null>(null);
+  const [selectedValue, setSelectedValue] = useState<string>("");
+  const [show, setShow] = useState<boolean>(false);
   const myAction = () => {
     const getArr = isValidParentheses();
     console.table(getArr);
   };
 
-  const onChange = (value: string) => {
-    setInputText(value);
-  };
+  /* const onChange = (value: string) => {
+    setInputText(value); // Timer break
+  }; */
+
   const submitFun = () => {
     const textArray = inputText.split(" ");
     let displayText = "";
@@ -53,23 +60,57 @@ function App() {
   };
 
   const fetchData = async () => {
-    const getData = await axios.get(
+    /* const getData = await axios.get(
       "https://jsonplaceholder.typicode.com/posts"
     );
     const data = getData?.data?.slice(0, 10) as DataProps[];
     setData(data);
-    console.table(data);
+    console.table(data); */
+
+    const fetchData = await axios.get("http://localhost:3001/searchItem");
+    setData(fetchData.data);
+    console.log(fetchData.data);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
-
+  // debounce
   useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      if (search !== null && search !== "") {
+        const newData = data.filter((val: any) => {
+          const { value }: { value: string; id?: number } = val;
+          if (value.toLocaleLowerCase().includes(search.toLocaleLowerCase())) {
+            return val;
+          }
+        });
+        setData(newData);
+        setShow(true);
+      } else if (search === "" || search === null) {
+        fetchData();
+        setShow(false);
+      }
+    }, 500);
+    return () => clearTimeout(delayDebounceFn);
+  }, [search]);
+
+  /*  useEffect(() => {
     setInterval(() => {
       fetchData();
+      
     }, 1000 * 60);
-  }, []);
+  }, []); */
+
+  const selectChange = (e: any) => {
+    console.log(e.target.value);
+  };
+
+  const setUpdatedValue = (value: string) => {
+    setSearch(value);
+    // setSelectedValue(value);
+    setShow(false);
+  };
 
   return (
     <div className="App">
@@ -99,16 +140,14 @@ function App() {
               gap: "1rem",
             }}
           >
-            {data &&
+            {/* {data &&
               data?.map((val: DataProps, index: number) => {
                 const { title } = val;
                 return (
                   <Text label={title} color="red" size="1rem" key={index} />
                 );
-              })}
-            <div>
-              <Text label={text} color="red" size="1rem" />
-            </div>
+              })} */}
+
             <div
               style={{
                 display: "flex",
@@ -117,13 +156,42 @@ function App() {
                 gap: "1rem",
               }}
             >
-              <Input onInputChange={onChange} />
-              <button onClick={myAction} title="Hello">
+              <Input onInputChange={(e: string) => setSearch(e)} />
+              <button onClick={submitFun} title="Hello">
                 Submit
               </button>
+              <select onChange={selectChange}>
+                <option>Please select one</option>
+                {data &&
+                  data?.map((val: any, index: number) => {
+                    return <option key={index}>{val.value}</option>;
+                  })}
+              </select>
             </div>
           </div>
         </div>
+        <SearchWrapper>
+          <Text label={selectedValue} color="red" size="1rem" />
+          <TextWrapper>
+            <Input onInputChange={(e: string) => setSearch(e)} />
+          </TextWrapper>
+          {show && (
+            <ResultWrapper>
+              {data &&
+                data?.map((val: any, index: number) => {
+                  return (
+                    <Text
+                      label={val.value}
+                      color="red"
+                      size="1rem"
+                      key={index}
+                      onClickEvent={setUpdatedValue}
+                    />
+                  );
+                })}
+            </ResultWrapper>
+          )}
+        </SearchWrapper>
       </section>
     </div>
   );
