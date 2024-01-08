@@ -3,7 +3,6 @@ import axios from "axios";
 import logo from "./logo.svg";
 import "./App.css";
 import Text from "./Components/Text";
-import { getMapArray } from "./Components/Misc/ArrayFun";
 import {
   findTwoSum,
   ifDuplicateExist,
@@ -15,9 +14,12 @@ import {
   isValidParentheses,
   longestSubstring,
 } from "./Components/Misc/StringAlg";
-import useDebounce from "./hook/debounce";
-import { log } from "console";
 import { ResultWrapper, SearchWrapper, TextWrapper } from "./styled.component";
+import { isAnagram } from "./Components/Misc/AlgTest/Strings.js/ValidAnagram";
+import { isPalindromeNumber } from "./Components/Misc/AlgTest/Strings.js/PalindromeNumber";
+import { reverseVowel } from "./Components/Misc/AlgTest/Strings.js/ReverseVowelofString";
+import { mergeStringAlternate } from "./Components/Misc/AlgTest/Strings.js/MergeStringAlternatively";
+import { differenceOftwoArrays } from "./Components/Misc/AlgTest/Array/DifferenceofTwoArrays";
 
 interface DataProps {
   userId: number;
@@ -41,6 +43,11 @@ function App() {
   /* const onChange = (value: string) => {
     setInputText(value); // Timer break
   }; */
+
+  const testFunction = () => {
+    const val = differenceOftwoArrays();
+    console.log(val);
+  };
 
   const submitFun = () => {
     const textArray = inputText.split(" ");
@@ -157,7 +164,7 @@ function App() {
               }}
             >
               <Input onInputChange={(e: string) => setSearch(e)} />
-              <button onClick={submitFun} title="Hello">
+              <button onClick={testFunction} title="Hello">
                 Submit
               </button>
               <select onChange={selectChange}>

@@ -15,5 +15,6 @@ class Employee {
 }
 
 const employee = new Employee(1, "tanveer");
+console.log(employee);
 console.log(employee.getId());
 console.log(employee.getName());

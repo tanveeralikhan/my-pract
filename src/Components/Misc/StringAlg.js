@@ -4,6 +4,7 @@ export const longestSubstring = () => {
   let s = "bbbb";
   const ss = new Set();
   let i = 0;
+  //ans = 0;
   let ans = 0;
   for (let j = 0; j < s.length; ++j) {
     while (ss.has(s[j])) {
