@@ -35,3 +35,27 @@
     transform: rotate(360deg);
   }
 }
+
+.like-button {
+  width: fit-content;
+  border: 1px solid #afafaf;
+  padding: 8px;
+  cursor: pointer;
+  color: rgb(102, 99, 99);
+  font-weight: 400;
+  &:hover {
+    background: #f5f5f5;
+    /*  border: 2px solid #afafaf; */
+    box-shadow: 1px 1px #afafaf;
+  }
+}
+
+.like-button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.liked {
+  color: #1584b1;
+  font-weight: 500;
+}

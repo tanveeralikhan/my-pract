@@ -20,6 +20,7 @@ import { isPalindromeNumber } from "./Components/Misc/AlgTest/Strings.js/Palindr
 import { reverseVowel } from "./Components/Misc/AlgTest/Strings.js/ReverseVowelofString";
 import { mergeStringAlternate } from "./Components/Misc/AlgTest/Strings.js/MergeStringAlternatively";
 import { differenceOftwoArrays } from "./Components/Misc/AlgTest/Array/DifferenceofTwoArrays";
+import classNames from "classnames";
 
 interface DataProps {
   userId: number;
@@ -35,6 +36,9 @@ function App() {
   const [search, setSearch] = useState<string | null>(null);
   const [selectedValue, setSelectedValue] = useState<string>("");
   const [show, setShow] = useState<boolean>(false);
+  const [islike, setIsLike] = useState(false);
+  const initialValue = 100;
+  const [likes, setLikes] = useState(initialValue);
   const myAction = () => {
     const getArr = isValidParentheses();
     console.table(getArr);
@@ -119,6 +123,21 @@ function App() {
     setShow(false);
   };
 
+  const likeClicked = () => {
+    setIsLike((state) => !state);
+  };
+
+  useEffect(() => {
+    let like = likes;
+    if (islike) {
+      setLikes(like + 1);
+    } else if (like !== initialValue) {
+      setLikes(like - 1);
+    }
+  }, [islike]);
+
+  const btnClass = classNames({ "like-button": true, liked: islike });
+
   return (
     <div className="App">
       <header className="App-header">
@@ -199,6 +218,11 @@ function App() {
             </ResultWrapper>
           )}
         </SearchWrapper>
+        <div className="like-button-wrapper">
+          <div className={btnClass} onClick={likeClicked}>
+            <span className="likes-counter">{`Like | ${likes}`}</span>
+          </div>
+        </div>
       </section>
     </div>
   );
