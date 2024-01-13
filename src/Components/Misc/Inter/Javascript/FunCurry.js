@@ -8,7 +8,7 @@ const multiply = (num1) => {
 
 //const multiply = (num1) => (num2) => num1 * num2;
 
-//console.log(multiply(2)(3));
+console.log(multiply(2)(3));
 
 // for n number pf parameters
 // Easy Way************
@@ -17,6 +17,7 @@ const add = (a) => {
   next.valueOf = () => a;
   return next;
 };
+console.log(add(2)(4)(6)(10).valueOf());
 
 /* const one = add(1);
 console.log(one.valueOf());
