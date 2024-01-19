@@ -1,25 +1,11 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import axios from "axios";
-import logo from "./logo.svg";
 import "./App.css";
 import Text from "./Components/Text";
-import {
-  findTwoSum,
-  ifDuplicateExist,
-  removeDuplicate,
-  removeElement,
-} from "./Components/Misc/ArrayAlg";
+
 import Input from "./Components/Input.tsx";
-import {
-  isValidParentheses,
-  longestSubstring,
-} from "./Components/Misc/StringAlg";
+
 import { ResultWrapper, SearchWrapper, TextWrapper } from "./styled.component";
-import { isAnagram } from "./Components/Misc/AlgTest/Strings.js/ValidAnagram";
-import { isPalindromeNumber } from "./Components/Misc/AlgTest/Strings.js/PalindromeNumber";
-import { reverseVowel } from "./Components/Misc/AlgTest/Strings.js/ReverseVowelofString";
-import { mergeStringAlternate } from "./Components/Misc/AlgTest/Strings.js/MergeStringAlternatively";
-import { differenceOftwoArrays } from "./Components/Misc/AlgTest/Array/DifferenceofTwoArrays";
 import classNames from "classnames";
 
 interface DataProps {
@@ -40,7 +26,7 @@ function App() {
   const initialValue = 100;
   const [likes, setLikes] = useState(initialValue);
   const myAction = () => {
-    const getArr = isValidParentheses();
+    const getArr = {};
     console.table(getArr);
   };
 
@@ -49,7 +35,7 @@ function App() {
   }; */
 
   const testFunction = () => {
-    const val = differenceOftwoArrays();
+    const val = "";
     console.log(val);
   };
 
