@@ -21,3 +21,9 @@ Promise.resolve().then(() => console.log("D"));
 // Promises are set into micro task queue , --> this is always in high priority.
 // Promises are based on Mutation and observer.
 // Starvation --> when call back queues waits for the microtask to gets completed , like due to nested promises.
+
+const promise1 = new Promise((resolve, reject) => {
+  console.log(1);
+}).then(() => {
+  console.log(3);
+});
