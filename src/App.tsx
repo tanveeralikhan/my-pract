@@ -7,6 +7,7 @@ import Input from "./Components/Input.tsx";
 
 import { ResultWrapper, SearchWrapper, TextWrapper } from "./styled.component";
 import classNames from "classnames";
+import { chunkArrayInGroups } from "./Components/Misc/AlgTest/Array/SPLIT_ARRAY_CHUNK_SIZE";
 
 interface DataProps {
   userId: number;
@@ -26,7 +27,7 @@ function App() {
   const initialValue = 100;
   const [likes, setLikes] = useState(initialValue);
   const myAction = () => {
-    const getArr = {};
+    const getArr = chunkArrayInGroups();
     console.table(getArr);
   };
 
@@ -169,7 +170,7 @@ function App() {
               }}
             >
               <Input onInputChange={(e: string) => setSearch(e)} />
-              <button onClick={testFunction} title="Hello">
+              <button onClick={myAction} title="Hello">
                 Submit
               </button>
               <select onChange={selectChange}>

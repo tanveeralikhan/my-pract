@@ -19,11 +19,13 @@ console.log(employee);
 console.log(employee.getId());
 console.log(employee.getName());
 
-function Person(firstName, lastName) {
-  this.firstName = firstName;
-  this.lastName = lastName;
+class Person {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
 
-   getFullName() {
+  getFullName() {
     return `${this.firstName} ${this.lastName}`;
   }
 }
