@@ -27,3 +27,7 @@ const promise1 = new Promise((resolve, reject) => {
 }).then(() => {
   console.log(3);
 });
+
+const mypromise = async () => {
+  const call = await promise1;
+};

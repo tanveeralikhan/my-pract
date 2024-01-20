@@ -10,7 +10,7 @@ var person2 = {
   name: "Nilofar",
 };
 
-greet.call(person1, "Hi!");
+//greet.call(person1, "Hi!");
 greet.apply(person2, ["Hello"]);
 
 var greetPerson = greet.bind(person1);
