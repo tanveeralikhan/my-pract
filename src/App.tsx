@@ -8,6 +8,7 @@ import Input from "./Components/Input.tsx";
 import { ResultWrapper, SearchWrapper, TextWrapper } from "./styled.component";
 import classNames from "classnames";
 import { chunkArrayInGroups } from "./Components/Misc/AlgTest/Array/SPLIT_ARRAY_CHUNK_SIZE";
+import DisplayTable from "./Components/Interview/Publicis";
 
 interface DataProps {
   userId: number;
@@ -41,6 +42,39 @@ function App() {
   };
 
   const submitFun = () => {
+   /*  let abc = "asdd";
+    abc.length;
+    let dat = {
+      status: 200,
+      data: {
+        coord: { lon: 2.35, lat: 48.85 },
+        climate: [[Object]],
+        base: "stations",
+        main: {
+          temp: 12.3,
+          feels_like: 6.94,
+          temp_min: 12,
+          temp_max: 12.78,
+          pressure: 1003,
+          humidity: 93,
+        },
+        visibility: 10000,
+        wind: { speed: 8.2, deg: 210 },
+        clouds: { all: 90 },
+        dt: 1603823680,
+        sys: {
+          type: 1,
+          id: 6550,
+          country: "FR",
+          sunrise: 1603780194,
+          sunset: 1603816725,
+        },
+        timezone: 3600,
+        id: 2988507,
+        name: "Paris",
+        code: 200,
+      },
+    }; */
     const textArray = inputText.split(" ");
     let displayText = "";
     let counter = 0;
@@ -137,7 +171,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <section>
+      {/*  <section>
         <div
           style={{
             display: "flex",
@@ -153,13 +187,13 @@ function App() {
               gap: "1rem",
             }}
           >
-            {/* {data &&
+            {data &&
               data?.map((val: DataProps, index: number) => {
                 const { title } = val;
                 return (
                   <Text label={title} color="red" size="1rem" key={index} />
                 );
-              })} */}
+              })}
 
             <div
               style={{
@@ -210,7 +244,9 @@ function App() {
             <span className="likes-counter">{`Like | ${likes}`}</span>
           </div>
         </div>
-      </section>
+      </section> */}
+
+      <DisplayTable />
     </div>
   );
 }
