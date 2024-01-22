@@ -4,21 +4,23 @@ import { ComponentType } from "react";
   error: string;
 } */
 
-export const withError(
-  Component
-) => {
+export const Container = () => {
+  return <Pure error={true} />;
+};
+
+export const withError = (Component) => {
   return (props) => {
     const { error } = props;
-    if (error) return <div>error</div>;
+    if (error) return <div>ERROR PAGE</div>;
 
     return <Component {...props} />;
   };
 };
 
-const myApp=(props)=>{
-  return <div></div>
-}
+const myApp = () => {
+  return <div>MY APP</div>;
+};
 
+const Pure = myApp();
 
-export default withError(myApp)
-
+export default withError(myApp);
