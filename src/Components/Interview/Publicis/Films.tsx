@@ -6,9 +6,6 @@ export interface FilmsDataProps {
   producer: string;
 }
 
-interface FilmsProps {
-  films: string[];
-}
 const Films = (props: string[]) => {
   const [data, setData] = useState<FilmsDataProps[]>([]);
 

@@ -30,17 +30,19 @@ const DisplayTable = () => {
   }, []);
   return (
     <div>
-      {data &&
-        data.map((val: DisplayTableProps) => {
-          const { films, name, vehicles } = val;
-          return (
-            <div>
-              <h1>Name</h1>
-              <div>{name}</div>
-              <Films {...films} />
-            </div>
-          );
-        })}
+      <div>
+        {data &&
+          data.map((val: DisplayTableProps) => {
+            const { films, name, vehicles } = val;
+            return (
+              <div>
+                <h1>Name</h1>
+                <div>{name}</div>
+                <Films {...films} />
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 };

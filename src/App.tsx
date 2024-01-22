@@ -42,39 +42,6 @@ function App() {
   };
 
   const submitFun = () => {
-   /*  let abc = "asdd";
-    abc.length;
-    let dat = {
-      status: 200,
-      data: {
-        coord: { lon: 2.35, lat: 48.85 },
-        climate: [[Object]],
-        base: "stations",
-        main: {
-          temp: 12.3,
-          feels_like: 6.94,
-          temp_min: 12,
-          temp_max: 12.78,
-          pressure: 1003,
-          humidity: 93,
-        },
-        visibility: 10000,
-        wind: { speed: 8.2, deg: 210 },
-        clouds: { all: 90 },
-        dt: 1603823680,
-        sys: {
-          type: 1,
-          id: 6550,
-          country: "FR",
-          sunrise: 1603780194,
-          sunset: 1603816725,
-        },
-        timezone: 3600,
-        id: 2988507,
-        name: "Paris",
-        code: 200,
-      },
-    }; */
     const textArray = inputText.split(" ");
     let displayText = "";
     let counter = 0;
