@@ -7,7 +7,7 @@ import Input from "./Components/Input.tsx";
 
 import { ResultWrapper, SearchWrapper, TextWrapper } from "./styled.component";
 import classNames from "classnames";
-import { chunkArrayInGroups } from "./Components/Misc/AlgTest/Array/SPLIT_ARRAY_CHUNK_SIZE";
+import { chunkArrayInGroups } from "./Components/Misc/AlgTest/ARRAY/SPLIT_ARRAY_CHUNK_SIZE";
 import DisplayTable from "./Components/Interview/Publicis";
 import { useDispatch, useSelector } from "react-redux";
 import {
