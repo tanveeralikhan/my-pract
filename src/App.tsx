@@ -9,6 +9,11 @@ import { ResultWrapper, SearchWrapper, TextWrapper } from "./styled.component";
 import classNames from "classnames";
 import { chunkArrayInGroups } from "./Components/Misc/AlgTest/Array/SPLIT_ARRAY_CHUNK_SIZE";
 import DisplayTable from "./Components/Interview/Publicis";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  decreaseCounter,
+  increaseCounter,
+} from "./Components/APP_WITH_REDUX/data/actions/counter.actions";
 
 interface DataProps {
   userId: number;
@@ -18,6 +23,16 @@ interface DataProps {
 }
 
 function App() {
+  const count = useSelector((state: any) => state.counter.count);
+  const dispatch = useDispatch();
+
+  const handleIncrement = () => {
+    dispatch(increaseCounter());
+  };
+
+  const handleDecrement = () => {
+    dispatch(decreaseCounter());
+  };
   const [text, setText] = useState<string>("");
   const [inputText, setInputText] = useState<string>("");
   const [data, setData] = useState<any[]>([]);
@@ -138,6 +153,7 @@ function App() {
           Learn React
         </a>
       </header>
+
       {/*  <section>
         <div
           style={{
