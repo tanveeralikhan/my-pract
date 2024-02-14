@@ -15,6 +15,8 @@ import {
   increaseCounter,
 } from "./Components/APP_WITH_REDUX/data/actions/counter.actions";
 import { getRansomNotes } from "./Components/Misc/AlgTest/STRINGS/RANSOM_NOTES";
+import Myform from "./Components/Form/MyForm";
+import Login from "./Components/Form/WithRef/Login";
 
 interface DataProps {
   userId: number;
@@ -232,6 +234,8 @@ function App() {
       </section> */}
 
       {/* <DisplayTable /> */}
+      <Myform />
+      <Login />
     </div>
   );
 }
