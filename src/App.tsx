@@ -17,6 +17,7 @@ import {
 import { getRansomNotes } from "./Components/Misc/AlgTest/STRINGS/RANSOM_NOTES";
 import Myform from "./Components/Form/MyForm";
 import Login from "./Components/Form/WithRef/Login";
+import SlidingImage from "./Components/SlidingImage/Index";
 
 interface DataProps {
   userId: number;
@@ -236,6 +237,7 @@ function App() {
       {/* <DisplayTable /> */}
       <Myform />
       <Login />
+      <SlidingImage />
     </div>
   );
 }

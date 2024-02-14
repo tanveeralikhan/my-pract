@@ -1,0 +1,17 @@
+.sliding-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.button-class {
+  min-width: 3rem;
+  height: 3rem;
+  font-weight: 600;
+  padding: 1rem;
+  background: #e9e2e2;
+  border: 1px solid #c5c1c1;
+}
+.img-class {
+  width: 30rem;
+}
