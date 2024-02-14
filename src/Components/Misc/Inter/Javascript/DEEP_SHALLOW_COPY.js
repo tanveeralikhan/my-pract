@@ -25,3 +25,15 @@ objclone.b = 4;
 objclone.c.age = 45;
 console.log("After Change - obj: ", obj);
 console.log("After Change - objclone: ", objclone);
+
+const employee1 = [{ name: "Tanveer", company: "Luxoft" }];
+const cloneEmployee1 = [...employee];
+cloneEmployee[0].company = "JLL";
+console.log(employee);
+console.log(cloneEmployee);
+
+const employee = { name: "Tanveer", company: "Luxoft" };
+const cloneEmployee = { ...employee };
+cloneEmployee.company = "JLL";
+console.log(employee);
+console.log(cloneEmployee);
