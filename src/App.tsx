@@ -14,6 +14,7 @@ import {
   decreaseCounter,
   increaseCounter,
 } from "./Components/APP_WITH_REDUX/data/actions/counter.actions";
+import { getRansomNotes } from "./Components/Misc/AlgTest/STRINGS/RANSOM_NOTES";
 
 interface DataProps {
   userId: number;
@@ -52,7 +53,7 @@ function App() {
   }; */
 
   const testFunction = () => {
-    const val = "";
+    const val = getRansomNotes();
     console.log(val);
   };
 
@@ -153,6 +154,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <button onClick={testFunction}>Check Result</button>
 
       {/*  <section>
         <div
@@ -229,7 +231,7 @@ function App() {
         </div>
       </section> */}
 
-      <DisplayTable />
+      {/* <DisplayTable /> */}
     </div>
   );
 }
