@@ -17,6 +17,7 @@ import { getRansomNotes } from "./Components/Misc/AlgTest/STRINGS/RANSOM_NOTES";
 import Myform from "./Components/Form/MyForm";
 import Login from "./Components/Form/WithRef/Login";
 import SlidingImage from "./Components/SlidingImage/Index";
+import { divideString } from "./Components/Misc/AlgTest/STRINGS/DIVIDE_STRING_EQUAL_GUIDE";
 
 interface DataProps {
   userId: number;
@@ -53,7 +54,7 @@ function App() {
   }; */
 
   const testFunction = () => {
-    const val = getRansomNotes();
+    const val = divideString();
     console.log(val);
   };
 
