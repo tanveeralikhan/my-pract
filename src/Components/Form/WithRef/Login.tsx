@@ -1,18 +1,17 @@
 import { useRef } from "react";
 
 function Login() {
-  const password = useRef();
-  const username = useRef();
+  const password = useRef<HTMLInputElement>();
+  const username = useRef<HTMLInputElement>();
 
   const handleClick = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = {
       username: username?.current?.value,
-      email: username.current.value,
-      password: password.current.value,
+      password: password?.current?.value,
     };
     alert(
-      `Name: ${data.username} Email: ${data.email} Password: ${data.password}`
+      `Name: ${data.username} Password: ${data.password}`
     );
   };
   return (

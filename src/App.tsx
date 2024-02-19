@@ -7,7 +7,6 @@ import Input from "./Components/Input.tsx";
 
 import { ResultWrapper, SearchWrapper, TextWrapper } from "./styled.component";
 import classNames from "classnames";
-import { chunkArrayInGroups } from "./Components/Misc/AlgTest/ARRAY/SPLIT_ARRAY_CHUNK_SIZE";
 import DisplayTable from "./Components/Interview/Publicis";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -47,8 +46,6 @@ function App() {
   const initialValue = 100;
   const [likes, setLikes] = useState(initialValue);
   const myAction = () => {
-    const getArr = chunkArrayInGroups();
-    console.table(getArr);
   };
 
   /* const onChange = (value: string) => {
