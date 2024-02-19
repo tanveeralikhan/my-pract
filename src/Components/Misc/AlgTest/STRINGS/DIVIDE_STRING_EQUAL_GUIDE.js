@@ -17,6 +17,27 @@ export const divideString = () => {
       } else {
         str2 += strArr[i];
         obj2[strArr[i]] = obj2[strArr[i]] ? obj2[strArr[i]] + 1 : 1;
+        if (i < str.length - 1) {
+          for (const [key, value] of Object.entries(obj1)) {
+            console.log(key, value);
+            const compareValue = Object.entries(obj2).find(
+              ([obj2key, obj2value]) => {
+                if (obj2key === key) {
+                  return obj2value;
+                }
+              }
+            );
+            if (compareValue) {
+              console.log(
+                `obj1 key ${key} has value ${value} is equal to the value ${compareValue} in obj2`
+              );
+            } else {
+              console.log(
+                `obj1 key ${key} has value ${value} is not in in obj2`
+              );
+            }
+          }
+        }
       }
     }
     console.log(str1, str2, obj1, obj2);
