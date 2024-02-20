@@ -1,5 +1,34 @@
+body{
+  margin:0;
+}
 .App {
   text-align: center;
+}
+.header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #d8c9c9;
+  height:3rem;
+}
+.ul-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  &>li{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+}
+
+.no-bullets {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .App-logo {

@@ -1,8 +1,9 @@
 import { useRef } from "react";
-
+import {useNavigate} from "react-router-dom"
 function Login() {
   const password = useRef<HTMLInputElement>();
   const username = useRef<HTMLInputElement>();
+  const navigate=useNavigate();
 
   const handleClick = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -10,9 +11,8 @@ function Login() {
       username: username?.current?.value,
       password: password?.current?.value,
     };
-    alert(
-      `Name: ${data.username} Password: ${data.password}`
-    );
+    navigate("/slidingImage");
+    
   };
   return (
     <>

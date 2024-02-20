@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import "./App.css";
 import Text from "./Components/Text";
-
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import Input from "./Components/Input.tsx";
 
 import { ResultWrapper, SearchWrapper, TextWrapper } from "./styled.component";
@@ -18,6 +18,8 @@ import Myform from "./Components/Form/MyForm";
 import Login from "./Components/Form/WithRef/Login";
 import SlidingImage from "./Components/SlidingImage/Index";
 import { divideString } from "./Components/Misc/AlgTest/STRINGS/DIVIDE_STRING_EQUAL_GUIDE";
+import { Link } from "react-router-dom";
+
 
 interface DataProps {
   userId: number;
@@ -142,101 +144,31 @@ function App() {
   }, [islike]);
 
   const btnClass = classNames({ "like-button": true, liked: islike });
+  const Header=()=>{
+    return (
+      <>
+      <header className="header">
+        <nav >
+          <ul className="ul-container">
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/slidingImage">About</Link></li>
+            <li><Link to="/">Contact</Link></li>
+          </ul>
+        </nav>
+      </header>
+      </>
+    )
+  }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <button onClick={testFunction}>Check Result</button>
 
-      {/*  <section>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              gap: "1rem",
-            }}
-          >
-            {data &&
-              data?.map((val: DataProps, index: number) => {
-                const { title } = val;
-                return (
-                  <Text label={title} color="red" size="1rem" key={index} />
-                );
-              })}
-
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                gap: "1rem",
-              }}
-            >
-              <Input onInputChange={(e: string) => setSearch(e)} />
-              <button onClick={myAction} title="Hello">
-                Submit
-              </button>
-              <select onChange={selectChange}>
-                <option>Please select one</option>
-                {data &&
-                  data?.map((val: any, index: number) => {
-                    return <option key={index}>{val.value}</option>;
-                  })}
-              </select>
-            </div>
-          </div>
-        </div>
-        <SearchWrapper>
-          <Text label={selectedValue} color="red" size="1rem" />
-          <TextWrapper>
-            <Input onInputChange={(e: string) => setSearch(e)} />
-          </TextWrapper>
-          {show && (
-            <ResultWrapper>
-              {data &&
-                data?.map((val: any, index: number) => {
-                  return (
-                    <Text
-                      label={val.value}
-                      color="red"
-                      size="1rem"
-                      key={index}
-                      onClickEvent={setUpdatedValue}
-                    />
-                  );
-                })}
-            </ResultWrapper>
-          )}
-        </SearchWrapper>
-        <div className="like-button-wrapper">
-          <div className={btnClass} onClick={likeClicked}>
-            <span className="likes-counter">{`Like | ${likes}`}</span>
-          </div>
-        </div>
-      </section> */}
-
-      {/* <DisplayTable /> */}
-      <Myform />
-      <Login />
-      <SlidingImage />
-    </div>
+      <BrowserRouter>
+      <Header />
+        <Routes>
+        <Route path="/" element={<Login />}></Route>
+        <Route path="/slidingImage" element={<SlidingImage/>}></Route>
+        </Routes>
+      </BrowserRouter>
   );
 }
 
