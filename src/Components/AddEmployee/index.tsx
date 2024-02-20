@@ -18,6 +18,7 @@ const AddEmployee=()=>{
     
       const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        sessionStorage.setItem("employeeData",JSON.stringify(formData))
         navigate("/employeeDetails",{state:{...formData}})
         
       };
@@ -40,7 +41,7 @@ const AddEmployee=()=>{
                 <label htmlFor="lastName" className="label-field">Last Name:</label>
                 <input
                 className="input-field"
-                type="email"
+                type="text"
                 id="lastName"
                 name="lastName"
                 value={formData.lastName}

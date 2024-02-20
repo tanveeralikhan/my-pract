@@ -7,7 +7,11 @@ import "./EmployeeDetails.css"
 const EmployeeDetails=()=>{
     const [data,setData] = useState<EmployeeData[]>(EmployeesData);
     useEffect(()=>{
-        
+        const data = sessionStorage.getItem("employeeData");
+        if(data !== null){
+            console.log(JSON.parse(data));
+        }
+       
     },[])
     return(<>
         <table data-testid="custom-table" style={{borderSpacing:0}}>
@@ -22,7 +26,7 @@ const EmployeeDetails=()=>{
             <tbody>
                 {data && data.map(({email,firstName,lastName,phone}:EmployeeData)=>{
                     return (
-                        <tr>
+                        <tr data-testid="table-row">
                             <td className="table-data-td-cells"><div className="table-data-cells">{firstName}</div></td>
                             <td className="table-data-td-cells"><div className="table-data-cells">{lastName}</div></td>
                             <td className="table-data-td-cells"><div className="table-data-cells">{phone}</div></td>
