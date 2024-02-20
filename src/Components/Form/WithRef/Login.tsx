@@ -11,7 +11,7 @@ function Login() {
       username: username?.current?.value,
       password: password?.current?.value,
     };
-    navigate("/slidingImage");
+    navigate("/slidingImage",{state:true});
     
   };
   return (

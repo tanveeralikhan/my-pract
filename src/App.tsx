@@ -19,6 +19,9 @@ import Login from "./Components/Form/WithRef/Login";
 import SlidingImage from "./Components/SlidingImage/Index";
 import { divideString } from "./Components/Misc/AlgTest/STRINGS/DIVIDE_STRING_EQUAL_GUIDE";
 import { Link } from "react-router-dom";
+import AddEmployee from "./Components/AddEmployee";
+import EmployeeDetails from "./Components/EmployeeDetails.tsx";
+import DebounceSearch from "./Components/DebounceSearch";
 
 
 interface DataProps {
@@ -152,7 +155,9 @@ function App() {
           <ul className="ul-container">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/slidingImage">About</Link></li>
-            <li><Link to="/">Contact</Link></li>
+            <li><Link to="/addEmployee">Add Employee</Link></li>
+            <li><Link to="/employeeDetails">Employee Details</Link></li>
+            <li><Link to="/debounceSearch">Debounce Search</Link></li>
           </ul>
         </nav>
       </header>
@@ -261,6 +266,9 @@ function App() {
         <Routes>
         <Route path="/" element={<Login />}></Route>
         <Route path="/slidingImage" element={<SlidingImage/>}></Route>
+        <Route path="/addEmployee" element={<AddEmployee/>}></Route>
+        <Route path="/employeeDetails" element={<EmployeeDetails/>}></Route>
+        <Route path="/debounceSearch" element={<DebounceSearch/>}></Route>
         </Routes>
       </BrowserRouter>
   );

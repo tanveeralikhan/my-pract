@@ -1,0 +1,15 @@
+.table-header{
+height:3rem;
+   box-shadow: rgb(187 193 197 / 17%) 0px 2px 4px;
+}
+.header-cells{
+    min-width: 10rem;
+    border-right: 1px solid #cfcbcb;
+}
+.table-data-cells{
+    text-align: right;
+}
+
+.table-data-td-cells{
+    border-right: 1px solid #cfcbcb;
+}

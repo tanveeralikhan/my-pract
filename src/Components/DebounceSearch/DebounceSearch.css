@@ -1,0 +1,6 @@
+.debounce-search-wrapper{
+    width: 12rem;
+    display: grid;
+    grid-template-rows: 1fr 6fr;
+    gap:1px;
+}

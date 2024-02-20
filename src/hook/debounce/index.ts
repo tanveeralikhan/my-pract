@@ -19,7 +19,7 @@ import { DebounceProps } from "./interface";
 
 export default useDebounce; */
 
-function debounce(func: any, timeout = 300) {
+export const  useDebounce=(func: any, timeout = 300)=> {
   let timer: any;
   return (...args: any) => {
     clearTimeout(timer);
