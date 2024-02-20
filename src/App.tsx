@@ -33,6 +33,7 @@ interface DataProps {
 
 function App() {
   const count = useSelector((state: any) => state.counter.count);
+  console.log("************",count)
   const dispatch = useDispatch();
 
   const handleIncrement = () => {
@@ -51,6 +52,7 @@ function App() {
   const [islike, setIsLike] = useState(false);
   const initialValue = 100;
   const [likes, setLikes] = useState(initialValue);
+
   const myAction = () => {
   };
 
