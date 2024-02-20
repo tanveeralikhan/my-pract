@@ -1,6 +1,7 @@
 import { useState } from "react"
 import {optionsValue} from "./options"
 import { useDebounce } from "../../hook/debounce";
+import "./DebounceSearch.css";
 const DebounceSearch=()=>{
     const [text,setText] = useState("");
     const [data,setData]= useState<{id:number,value:string}[]>(optionsValue);
@@ -20,7 +21,7 @@ const DebounceSearch=()=>{
                 setText(e.target.value)
                 handleChange(e);
             }}/>
-            <div>
+            <div className="options-wrapper">
             {data.length>0 && data.map(({id,value})=>{
                 return (
                     <div key={id} onClick={()=>{onOptionSelect(value)}}>{value}</div>
