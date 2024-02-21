@@ -22,6 +22,7 @@ import { Link } from "react-router-dom";
 import AddEmployee from "./Components/AddEmployee";
 import EmployeeDetails from "./Components/EmployeeDetails.tsx";
 import DebounceSearch from "./Components/DebounceSearch";
+import Timer from "./Components/Timer/index";
 
 
 interface DataProps {
@@ -160,6 +161,7 @@ function App() {
             <li><Link to="/addEmployee">Add Employee</Link></li>
             <li><Link to="/employeeDetails">Employee Details</Link></li>
             <li><Link to="/debounceSearch">Debounce Search</Link></li>
+            <li><Link to="/timer">Timer</Link></li>
           </ul>
         </nav>
       </header>
@@ -271,6 +273,7 @@ function App() {
         <Route path="/addEmployee" element={<AddEmployee/>}></Route>
         <Route path="/employeeDetails" element={<EmployeeDetails/>}></Route>
         <Route path="/debounceSearch" element={<DebounceSearch/>}></Route>
+        <Route path="/timer" element={<Timer/>}></Route>
         </Routes>
       </BrowserRouter>
   );
