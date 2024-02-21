@@ -1,20 +1,14 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
-import Text from "./Components/Text";
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
-import Input from "./Components/Input.tsx";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { ResultWrapper, SearchWrapper, TextWrapper } from "./styled.component";
 import classNames from "classnames";
-import DisplayTable from "./Components/Interview/Publicis";
 import { useDispatch, useSelector } from "react-redux";
 import {
   decreaseCounter,
   increaseCounter,
 } from "./Components/APP_WITH_REDUX/data/actions/counter.actions";
-import { getRansomNotes } from "./Components/Misc/AlgTest/STRINGS/RANSOM_NOTES";
-import Myform from "./Components/Form/MyForm";
 import Login from "./Components/Form/WithRef/Login";
 import SlidingImage from "./Components/SlidingImage/Index";
 import { divideString } from "./Components/Misc/AlgTest/STRINGS/DIVIDE_STRING_EQUAL_GUIDE";
@@ -24,17 +18,9 @@ import EmployeeDetails from "./Components/EmployeeDetails.tsx";
 import DebounceSearch from "./Components/DebounceSearch";
 import Timer from "./Components/Timer/index";
 
-
-interface DataProps {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
-
 function App() {
   const count = useSelector((state: any) => state.counter.count);
-  console.log("************",count)
+  console.log("************", count);
   const dispatch = useDispatch();
 
   const handleIncrement = () => {
@@ -54,8 +40,7 @@ function App() {
   const initialValue = 100;
   const [likes, setLikes] = useState(initialValue);
 
-  const myAction = () => {
-  };
+  const myAction = () => {};
 
   /* const onChange = (value: string) => {
     setInputText(value); // Timer break
@@ -150,31 +135,42 @@ function App() {
   }, [islike]);
 
   const btnClass = classNames({ "like-button": true, liked: islike });
-  const Header=()=>{
+  const Header = () => {
     return (
       <>
-      <header className="header">
-        <nav >
-          <ul className="ul-container">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/slidingImage">About</Link></li>
-            <li><Link to="/addEmployee">Add Employee</Link></li>
-            <li><Link to="/employeeDetails">Employee Details</Link></li>
-            <li><Link to="/debounceSearch">Debounce Search</Link></li>
-            <li><Link to="/timer">Timer</Link></li>
-          </ul>
-        </nav>
-      </header>
+        <header className="header">
+          <nav>
+            <ul className="ul-container">
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/slidingImage">About</Link>
+              </li>
+              <li>
+                <Link to="/addEmployee">Add Employee</Link>
+              </li>
+              <li>
+                <Link to="/employeeDetails">Employee Details</Link>
+              </li>
+              <li>
+                <Link to="/debounceSearch">Debounce Search</Link>
+              </li>
+              <li>
+                <Link to="/timer">Timer</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
       </>
-    )
-  }
+    );
+  };
 
   return (
-
-      <BrowserRouter>
+    <BrowserRouter>
       <Header />
       <>
-      {/*   <main>
+        {/*   <main>
       <header className="App-header">
         <main>
         <nav>
@@ -188,7 +184,7 @@ function App() {
       </header>
       <button onClick={testFunction}>Check Result</button> */}
 
-      {/*  <section>
+        {/*  <section>
         <div
           style={{
             display: "flex",
@@ -263,19 +259,20 @@ function App() {
         </div>
       </section> */}
 
-      {/* <DisplayTable /> */}
-      {/* <Myform />
+        {/* <DisplayTable /> */}
+        {/* <Myform />
       <Login />
-      <SlidingImage /> */}</>
-        <Routes>
+      <SlidingImage /> */}
+      </>
+      <Routes>
         <Route path="/" element={<Login />}></Route>
-        <Route path="/slidingImage" element={<SlidingImage/>}></Route>
-        <Route path="/addEmployee" element={<AddEmployee/>}></Route>
-        <Route path="/employeeDetails" element={<EmployeeDetails/>}></Route>
-        <Route path="/debounceSearch" element={<DebounceSearch/>}></Route>
-        <Route path="/timer" element={<Timer/>}></Route>
-        </Routes>
-      </BrowserRouter>
+        <Route path="/slidingImage" element={<SlidingImage />}></Route>
+        <Route path="/addEmployee" element={<AddEmployee />}></Route>
+        <Route path="/employeeDetails" element={<EmployeeDetails />}></Route>
+        <Route path="/debounceSearch" element={<DebounceSearch />}></Route>
+        <Route path="/timer" element={<Timer />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
