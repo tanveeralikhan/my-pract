@@ -1,13 +1,13 @@
----
-When arrays are slow
-Big O of arrays
-insertion - It depends
-removal - it depends
-searching - O(n)
-Access - O(1)
----
+### When arrays are slow
 
-Big O of array operations
+## Big O of arrays
+
+- insertion - It depends
+- removal - it depends
+- searching - O(n)
+- Access - O(1)
+
+### Big O of array operations
 
 - push ---------------- O(1)
 - pop ----------------- O(1)
@@ -21,7 +21,7 @@ Big O of array operations
 
 ---
 
-problem solving steps
+## problem solving steps
 
 1. Can i restate the problem
 2. What are the inputs that go into the problem
