@@ -28,3 +28,14 @@
 3. what are the outputs that should come from the solution to the problem
 4. can the outputs be determine from the inputs ? Or do I have the enough info to solve the problem
 5. How should i label the important pieces of data that are a part of the problem?
+
+### Problem Solving Patterns
+
+- Frequency Patterns
+- Multiple Pointers
+- Sliding Window
+- Divide and Conquer
+- Dynamic Prgramming
+- Greedy Algorithms
+- Backtracking
+- Others
