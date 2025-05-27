@@ -17,6 +17,7 @@ import AddEmployee from "./Components/AddEmployee";
 import EmployeeDetails from "./Components/EmployeeDetails.tsx";
 import DebounceSearch from "./Components/DebounceSearch";
 import Timer from "./Components/Timer/index";
+import { same2 } from "./2025Practice/Algo/Array/SquareValueInOtherArray";
 
 function App() {
   const count = useSelector((state: any) => state.counter.count);
@@ -47,7 +48,7 @@ function App() {
   }; */
 
   const testFunction = () => {
-    const val = divideString();
+    const val = same2([1, 2, 3, 2, 5], [9, 1, 4, 4, 11]);
     console.log(val);
   };
 
@@ -272,6 +273,9 @@ function App() {
         <Route path="/debounceSearch" element={<DebounceSearch />}></Route>
         <Route path="/timer" element={<Timer />}></Route>
       </Routes>
+      <button onClick={testFunction} title="Hello">
+        Submit
+      </button>
     </BrowserRouter>
   );
 }
