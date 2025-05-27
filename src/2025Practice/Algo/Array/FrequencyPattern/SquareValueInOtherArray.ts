@@ -32,7 +32,7 @@ export const same2 = (arr1: number[], arr2: number[]) => {
   }
 
   for (let key in frequency1) {
-    const valueExist = frequency2[key ** 2];
+    const valueExist = frequency2[Number(key) ** 2]; // this Number(key can be written as key only)
     if (!valueExist) {
       return false;
     }
