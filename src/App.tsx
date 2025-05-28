@@ -18,6 +18,10 @@ import EmployeeDetails from "./Components/EmployeeDetails.tsx";
 import DebounceSearch from "./Components/DebounceSearch";
 import Timer from "./Components/Timer/index";
 import { same2 } from "./2025Practice/Algo/Array/FrequencyPattern/SquareValueInOtherArray";
+import {
+  maxSubArraySum,
+  maxSubArraySum2,
+} from "./2025Practice/Algo/Array/SlidingWindow/MaxSubarraySum";
 
 function App() {
   const count = useSelector((state: any) => state.counter.count);
@@ -48,7 +52,7 @@ function App() {
   }; */
 
   const testFunction = () => {
-    const val = same2([1, 2, 3, 2, 5], [9, 1, 4, 4, 11]);
+    const val = maxSubArraySum2([1, 2, 3, 2, 5], 3);
     console.log(val);
   };
 
