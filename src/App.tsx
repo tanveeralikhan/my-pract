@@ -22,6 +22,7 @@ import {
   maxSubArraySum,
   maxSubArraySum2,
 } from "./2025Practice/Algo/Array/SlidingWindow/MaxSubarraySum";
+import { maxConsecutiveOnes } from "./2025Practice/Algo/Array/SlidingWindow/MaxConsecutiveOnes";
 
 function App() {
   const count = useSelector((state: any) => state.counter.count);
@@ -52,7 +53,7 @@ function App() {
   }; */
 
   const testFunction = () => {
-    const val = maxSubArraySum2([1, 2, 3, 2, 5], 3);
+    const val = maxConsecutiveOnes([1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0], 2);
     console.log(val);
   };
 
